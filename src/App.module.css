@@ -1,0 +1,10 @@
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+input::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+  /* สำคัญ โดยเฉพาะ Firefox */
+}
