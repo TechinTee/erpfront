@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <section>
+    <section className={styles.body}>
         <Navbar />
     </section>
 
