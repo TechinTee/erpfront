@@ -1,5 +1,6 @@
+html,
 body {
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
 }
 
