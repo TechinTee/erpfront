@@ -60,9 +60,24 @@
   display: none;
 }
 
+.logo_full {
+  display: inline;
+}
+
+.logo_mobile {
+  display: none;
+}
+
 @media (max-width: 890px) {
   .mobile_menu {
-    display: none;
+    display: block;
+    list-style: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: max-height 0.45s ease, opacity 0.2s ease, transform 0.2s ease;
   }
 
   .mobile_menu ul {
@@ -74,17 +89,41 @@
   }
 
   .mobile_menu.open {
-    display: block;
-    max-height: 500px;
+    max-height: 300px;
     opacity: 1;
     transform: translateY(0);
+    transition: max-height 0.75s ease, opacity 0.2s ease, transform 0.2s ease;
   }
 
-  .navbar_center{
+  .navbar_center,
+  .search_box,
+  .logo_full {
     display: none;
   }
 
   .menu_button {
+    display: block;
+  }
+
+  .search_box_mb {
+    display: flex;
+    align-items: center;
+    /* ⭐ ให้อยู่กึ่งกลางแนวตั้ง */
+    gap: 0.5rem;
+  }
+
+  .search_box_mb input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+  }
+
+  .search_box_mb input::placeholder {
+    color: #aaa;
+  }
+
+  .logo_mobile {
     display: block;
   }
 

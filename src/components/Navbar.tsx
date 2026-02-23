@@ -17,7 +17,8 @@ function Navbar() {
         <nav className={styles.navbar}>
             <div className={styles.navbar_top}>
                 <div className={styles.navbar_left}>
-                    <a href="/">Shopping carts</a>
+                    <a className={styles.logo_full} href="/">Shopping carts</a>
+                    <span className={styles.logo_mobile}>Logo</span>
                 </div>
 
                 <div className={styles.navbar_center}>
@@ -35,17 +36,6 @@ function Navbar() {
                     <a href="/Cart">
                         <ShoppingCart />
                     </a>
-
-                    <button
-                        className={styles.menu_button}
-                        onClick={() => setOpen(!open)}
-                    >
-                        {open ? (
-                            <X />
-                        ) : (
-                            <Menu />
-                        )}
-                    </button>
                     <button
                         onClick={() =>
                             setTheme(theme === "dark" ? "light" : "dark")
@@ -57,10 +47,25 @@ function Navbar() {
                             <Sun />
                         )}</span>
                     </button>
+                    <button
+                        className={styles.menu_button}
+                        onClick={() => setOpen(!open)}
+                    >
+                        {open ? (
+                            <X />
+                        ) : (
+                            <Menu />
+                        )}
+                    </button>
+
                 </div>
             </div>
             <div className={`${styles.mobile_menu} ${open ? styles.open : ""}`}>
                 <ul>
+                    <li>
+                        <Search className={styles.search_box_mb} />
+                        <input type="text" placeholder="Search products..." />
+                    </li>
                     <li>
                         <a href="/Home">Home</a>
                     </li>
@@ -70,8 +75,6 @@ function Navbar() {
                     <li>
                         <a href="/Status">Status</a>
                     </li>
-
-
                 </ul>
             </div>
         </nav >
