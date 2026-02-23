@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { NavLink } from 'react-router-dom'
-import styles from '../styles/Navbar.module.css'
+import styles from './Navbar.module.css'
 import { ShoppingCart, Search, Menu, X, Moon, Sun } from 'lucide-react';
 
 
@@ -50,7 +50,7 @@ function Navbar() {
                     <NavLink onClick={() => setOpen(false)} to="/status">
                         Status
                     </NavLink>
-                    <NavLink onClick={() => setOpen(false)} to="/admin">
+                    <NavLink onClick={() => setOpen(false)} to="/admin/login">
                         Admin
                     </NavLink>
                 </div>
@@ -106,7 +106,7 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={() => setOpen(false)} to="/admin">
+                        <NavLink onClick={() => setOpen(false)} to="/admin/login">
                             Admin
                         </NavLink>
                     </li>
