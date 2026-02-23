@@ -3,9 +3,12 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <section className={styles.body}>
-        <Navbar />
-    </section>
+    <div className={styles.page}>
+      <Navbar />
+      <main className={styles.content}>
+
+      </main>
+    </div>
 
   )
 }
