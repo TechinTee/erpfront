@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from '../styles/Navbar.module.css'
 import { ShoppingCart, Search, Menu, X, Moon, Sun } from 'lucide-react';
 
@@ -6,15 +6,32 @@ import { ShoppingCart, Search, Menu, X, Moon, Sun } from 'lucide-react';
 function Navbar() {
 
     const [open, setOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement | null>(null);
     const [moon, setMoon] = useState(false);
     const [theme, setTheme] = useState("dark");
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+          if (
+            open &&
+            menuRef.current &&
+            !menuRef.current.contains(event.target as Node)
+          ) {
+            setOpen(false);
+          }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, [open]);
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
     }, [theme]);
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={styles.navbar} ref={menuRef}>
             <div className={styles.navbar_top}>
                 <div className={styles.navbar_left}>
                     <a className={styles.logo_full} href="/">Shopping carts</a>
