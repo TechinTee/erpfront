@@ -5,6 +5,7 @@ import Layout from './layouts/Layout'
 import Dashboard from './pages/Dashboard'
 import Products from './pages/Products'
 import NotFound from './pages/NotFound'
+import AdminLogin from './pages/auth/Login'
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="Products" element={<Products />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/admin/login" element={<AdminLogin />} />
+          </Route>
+          <Route>
+              
           </Route>
         </Routes>
       </BrowserRouter>

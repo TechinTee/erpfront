@@ -1,0 +1,21 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 96dvh;
+    overflow: hidden;
+}
+
+.content {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(0, 0, 0, 0.2));
+    margin: 1rem;
+    border-radius: 50px 50px 24px 24px;
+    overflow: hidden;
+    box-shadow: 0px 20px 20px 20px rgba(0, 0, 0, 0.45);
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
