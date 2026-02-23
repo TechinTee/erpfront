@@ -1,7 +1,7 @@
 .navbar {
   align-items: center;
-  margin: 2rem;
-  padding: 1.5rem 4rem;
+  margin: 1rem;
+  padding: 1.5rem 2.5rem;
   background-color: var(--navbar);
   border-radius: 9999px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 1.1);
@@ -14,11 +14,12 @@
 }
 
 .navbar_left {
-  font-size: larger;
+  font-size: 22px;
   font-weight: 600;
 }
 
 .navbar_center {
+  font-size: 17px;
   display: flex;
   gap: clamp(0rem, 2vw, 3rem);
 }
@@ -33,6 +34,7 @@
 }
 
 .navbar_right {
+  font-size: 17px;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -70,6 +72,7 @@
 
 @media (max-width: 890px) {
   .mobile_menu {
+    font-size: 17px;
     display: block;
     list-style: none;
     padding: 0;
@@ -81,10 +84,11 @@
   }
 
   .mobile_menu ul {
-    margin-top: 1rem;
+    margin: 5px;
   }
 
   .mobile_menu li {
+    display: flex;
     padding: 0.75rem 0;
   }
 
@@ -106,9 +110,6 @@
   }
 
   .search_box_mb {
-    display: flex;
-    align-items: center;
-    /* ⭐ ให้อยู่กึ่งกลางแนวตั้ง */
     gap: 0.5rem;
   }
 
@@ -116,11 +117,6 @@
     background: transparent;
     border: none;
     outline: none;
-    color: white;
-  }
-
-  .search_box_mb input::placeholder {
-    color: #aaa;
   }
 
   .logo_mobile {

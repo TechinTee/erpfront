@@ -1,0 +1,49 @@
+.center_container {
+    position: relative;
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spc_image {
+    width: clamp(300px, 45vw, 650px);
+    transform: rotate(0deg) translateY(-50px);
+    animation: fromTopRight 0.8s ease-out forwards;
+    transform-origin: center;
+    z-index: 1;
+}
+
+.zoom_left {
+    position: absolute;
+    bottom: 15%;
+    z-index: 2;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    animation: zoomInText 1s ease-out forwards;
+}
+
+@keyframes zoomInText {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fromTopRight {
+    0% {
+        transform: translate(100%, -200px) scale(1.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(100, 0) scale(0.8);
+        opacity: 1;
+    }
+}

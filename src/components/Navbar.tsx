@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { NavLink } from 'react-router-dom'
 import styles from '../styles/Navbar.module.css'
 import { ShoppingCart, Search, Menu, X, Moon, Sun } from 'lucide-react';
 
@@ -12,19 +13,19 @@ function Navbar() {
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
-          if (
-            open &&
-            menuRef.current &&
-            !menuRef.current.contains(event.target as Node)
-          ) {
-            setOpen(false);
-          }
+            if (
+                open &&
+                menuRef.current &&
+                !menuRef.current.contains(event.target as Node)
+            ) {
+                setOpen(false);
+            }
         }
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
-          document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
-      }, [open]);
+    }, [open]);
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
@@ -34,14 +35,24 @@ function Navbar() {
         <nav className={styles.navbar} ref={menuRef}>
             <div className={styles.navbar_top}>
                 <div className={styles.navbar_left}>
-                    <a className={styles.logo_full} href="/">Shopping carts</a>
-                    <span className={styles.logo_mobile}>Logo</span>
+                    <NavLink onClick={() => setOpen(false)} to="/" className={styles.logo_full}>
+                        Shopping carts
+                    </NavLink>
+                    <NavLink onClick={() => setOpen(false)} to="/" className={styles.logo_mobile}>
+                        Logo
+                    </NavLink>
                 </div>
 
                 <div className={styles.navbar_center}>
-                    <a href="/Home">Home</a>
-                    <a href="/Products">Products</a>
-                    <a href="/Status">Status</a>
+                    <NavLink onClick={() => setOpen(false)} to="/products">
+                        Products
+                    </NavLink>
+                    <NavLink onClick={() => setOpen(false)} to="/status">
+                        Status
+                    </NavLink>
+                    <NavLink onClick={() => setOpen(false)} to="/admin">
+                        Admin
+                    </NavLink>
                 </div>
 
                 <div className={styles.navbar_right}>
@@ -50,9 +61,10 @@ function Navbar() {
                         <input type="text" placeholder="Search products..." />
                     </div>
 
-                    <a href="/Cart">
+                    <NavLink onClick={() => setOpen(false)} to="/Cart">
                         <ShoppingCart />
-                    </a>
+                    </NavLink>
+
                     <button
                         onClick={() =>
                             setTheme(theme === "dark" ? "light" : "dark")
@@ -79,18 +91,24 @@ function Navbar() {
             </div>
             <div className={`${styles.mobile_menu} ${open ? styles.open : ""}`}>
                 <ul>
-                    <li>
-                        <Search className={styles.search_box_mb} />
+                    <li className={styles.search_box_mb} >
+                        <Search />
                         <input type="text" placeholder="Search products..." />
                     </li>
                     <li>
-                        <a href="/Home">Home</a>
+                        <NavLink onClick={() => setOpen(false)} to="/products">
+                            Products
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="/Products">Products</a>
+                        <NavLink onClick={() => setOpen(false)} to="/status">
+                            Status
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="/Status">Status</a>
+                        <NavLink onClick={() => setOpen(false)} to="/admin">
+                            Admin
+                        </NavLink>
                     </li>
                 </ul>
             </div>
