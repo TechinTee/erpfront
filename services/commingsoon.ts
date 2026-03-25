@@ -1,6 +1,14 @@
 import API from "./api";
 import type { AxiosResponse } from "axios";
 
-export const getComingSoon = (): Promise<AxiosResponse<string>> => {
-  return API.get<string>("/commingsoon");
+type ComingSoonResponse = {
+  status: string;
+  data: {
+    textname: string;
+  };
+  message: string;
+};
+
+export const getComingSoon = (): Promise<AxiosResponse<ComingSoonResponse>> => {
+  return API.get<ComingSoonResponse>("/commingsoon");
 };
