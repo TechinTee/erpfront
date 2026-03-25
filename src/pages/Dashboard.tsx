@@ -1,12 +1,28 @@
+import { useEffect, useState } from "react";
 import styles from './Dashboard.module.css'
+import { getComingSoon } from "../../services/commingsoon";
 
 function Dashboard() {
+    const [msg, setMsg] = useState<string>("Loading...");
+
+    useEffect(() => {
+        getComingSoon()
+            .then(res => {
+                setMsg(res.data);
+            })
+            .catch(err => {
+                console.error(err);
+                setMsg("Error");
+            });
+    }, []);
+
+
     return (
         <div >
             <div className={styles.center_container}>
                 <img className={styles.spc_image} src='/images/spc4.png' alt="spc" />
                 <h1 className={styles.zoom_left}>
-                    Comming Soon
+                    {msg}
                 </h1>
             </div>
         </div >
