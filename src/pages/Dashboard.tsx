@@ -8,7 +8,8 @@ function Dashboard() {
     useEffect(() => {
         getComingSoon()
             .then(res => {
-                setMsg(res.data);
+                const textname = res.data?.data?.textname;
+                setMsg(typeof textname === "string" ? textname : "Error");
             })
             .catch(err => {
                 console.error(err);
